@@ -29,4 +29,9 @@ export class ByCountryComponent {
       }
     );
   }
+
+  public suggestions(termInput: string) {
+    this.hasError = false;
+    // TODO: Create suggestions
+  }
 }

@@ -4,6 +4,7 @@
     name="termInput"
     class="form-control"
     [(ngModel)]="termInput"
+    (input)="keyboardPress()"
     placeholder="Search country..."
   />
 </form>

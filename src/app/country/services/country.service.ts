@@ -11,9 +11,6 @@ export class CountryService {
 
   constructor(private http: HttpClient) {}
 
-  /**
-   * searchCountry
-   */
   public searchCountry(term: string): Observable<Country[]> {
     const url = `${this.apiUrl}/name/${term}`;
 
