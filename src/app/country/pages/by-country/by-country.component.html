@@ -24,9 +24,11 @@
 
 <hr />
 
-<div class="alert alert-danger">Nothings was found with the term ABC</div>
+<div *ngIf="hasError" class="alert alert-danger">
+  Nothings was found with the term {{ term }}
+</div>
 
-<div class="row">
+<div *ngIf="!hasError" class="row">
   <div class="col">
     <table class="table table-hover">
       <thead>
