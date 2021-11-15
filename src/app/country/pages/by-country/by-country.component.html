@@ -28,7 +28,7 @@
   Nothings was found with the term {{ term }}
 </div>
 
-<div *ngIf="!hasError" class="row">
+<div *ngIf="countries.length > 0" class="row">
   <div class="col">
     <table class="table table-hover">
       <thead>
@@ -41,13 +41,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Flag</td>
-          <td>Name</td>
-          <td>1234568</td>
+        <tr *ngFor="let country of countries; let i = index">
+          <td>{{ i + 1 }}</td>
           <td>
-            <a href="/country/cri">View...</a>
+            <img class="small-flag" [src]="country.flags.svg" alt="" />
+          </td>
+          <td>{{ country.name.common }}</td>
+          <td>{{ country.population | number }}</td>
+          <td>
+            <a [routerLink]="['/country', country.cca2]">View...</a>
           </td>
         </tr>
       </tbody>
