@@ -14,9 +14,6 @@ export class ByCountryComponent {
 
   constructor(private countryService: CountryService) {}
 
-  /**
-   * search
-   */
   public search(): void {
     this.hasError = false;
 
