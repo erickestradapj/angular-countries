@@ -1,22 +1,24 @@
-<h3>
-  By Region [ <small>{{ activeRegion | titlecase }}</small> ]
-</h3>
+<div class="animate__animated animate__fadeIn animate__faster">
+  <h3>
+    By Region [ <small>{{ activeRegion | titlecase }}</small> ]
+  </h3>
 
-<h5 class="my-3">SELECT REGION</h5>
+  <h5 class="my-3">SELECT REGION</h5>
 
-<div class="row">
-  <div class="col">
-    <button
-      *ngFor="let region of listRegions"
-      [class]="getClassCSS(region)"
-      (click)="btnRegion(region)"
-    >
-      {{ region }}
-    </button>
+  <div class="row">
+    <div class="col">
+      <button
+        *ngFor="let region of listRegions"
+        [class]="getClassCSS(region)"
+        (click)="btnRegion(region)"
+      >
+        {{ region }}
+      </button>
+    </div>
   </div>
-</div>
 
-<hr />
+  <hr />
+</div>
 
 <div *ngIf="regions.length > 0" class="row">
   <div class="col">
