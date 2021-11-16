@@ -1,21 +1,22 @@
-<h2>By regions</h2>
-<hr />
+<h3>
+  By Region [ <small>{{ activeRegion | titlecase }}</small> ]
+</h3>
+
+<h5 class="my-3">SELECT REGION</h5>
 
 <div class="row">
   <div class="col">
-    <app-country-input
-      (onEnter)="search($event)"
-      (onDebounce)="suggestions($event)"
-      placeholder="Search region..."
-    ></app-country-input>
+    <button
+      *ngFor="let region of listRegions"
+      [class]="getClassCSS(region)"
+      (click)="btnRegion(region)"
+    >
+      {{ region }}
+    </button>
   </div>
 </div>
 
 <hr />
-
-<div *ngIf="hasError" class="alert alert-danger">
-  Nothings was found with the term {{ term }}
-</div>
 
 <div *ngIf="regions.length > 0" class="row">
   <div class="col">

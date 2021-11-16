@@ -17,7 +17,9 @@
       <td>{{ country.capital[0] }}, {{ country.name.common }}</td>
       <td>{{ country.population | number }}</td>
       <td>
-        <a [routerLink]="['/country', country.cca2]">Detail</a>
+        <a [routerLink]="['/country', country.cca2]" class="btn btn-success">
+          <i class="fas fa-info-circle"></i> Detail
+        </a>
       </td>
     </tr>
   </tbody>

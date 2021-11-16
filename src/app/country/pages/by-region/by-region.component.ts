@@ -8,28 +8,27 @@ import { Country } from '../../interfaces/country.interface';
   styles: [],
 })
 export class ByRegionComponent {
-  term: string = '';
-  hasError: boolean = false;
+  listRegions: string[] = ['africa', 'americas', 'asia', 'europe', ' oceania'];
+  activeRegion: string = '';
   regions: Country[] = [];
 
   constructor(private countryService: CountryService) {}
 
-  public search(termInput: string): void {
-    this.hasError = false;
-
-    this.countryService.searchRegion(termInput).subscribe(
-      (regions) => {
-        this.regions = regions;
-      },
-      (error) => {
-        this.hasError = true;
-        this.regions = [];
-      }
-    );
+  public getClassCSS(region: string) {
+    return region === this.activeRegion
+      ? 'btn btn-primary me-2'
+      : 'btn btn-outline-primary me-2';
   }
 
-  public suggestions(termInput: string) {
-    this.hasError = false;
-    // TODO: Create suggestions
+  public btnRegion(reg: string): void {
+    if (reg === this.activeRegion) {
+      return;
+    }
+
+    this.regions = [];
+    this.activeRegion = reg;
+    this.countryService.searchRegion(reg).subscribe((regions) => {
+      this.regions = regions;
+    });
   }
 }
