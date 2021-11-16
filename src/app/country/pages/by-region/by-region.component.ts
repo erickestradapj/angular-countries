@@ -8,7 +8,7 @@ import { Country } from '../../interfaces/country.interface';
   styles: [],
 })
 export class ByRegionComponent {
-  listRegions: string[] = ['africa', 'americas', 'asia', 'europe', ' oceania'];
+  listRegions: string[] = ['africa', 'americas', 'asia', 'europe', 'oceania'];
   activeRegion: string = '';
   regions: Country[] = [];
 
